@@ -33,16 +33,16 @@ const InfoButton = () => {
               <div className="flex items-center space-x-3">
                 <User className="h-5 w-5 text-primary" />
                 <span className="text-sm text-muted-foreground">
-                  Ana Clara - Desenvolvedora e Educadora
+                  Ana Clara - Desenvolvedora Fullstack
                 </span>
               </div>
               <div className="space-y-3">
                 <a
-                  href="mailto:ana@trilhaclara.com"
+                  href="mailto:anaclimgo@gmail.com"
                   className="flex items-center space-x-3 p-2 rounded-lg hover:bg-muted transition-colors"
                 >
                   <Mail className="h-4 w-4 text-primary" />
-                  <span className="text-sm">ana@trilhaclara.com</span>
+                  <span className="text-sm">anaclimgo@gmail.com</span>
                 </a>
                 <a
                   href="https://github.com/devanaclimgo"
