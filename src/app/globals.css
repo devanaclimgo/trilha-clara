@@ -116,4 +116,12 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .text-muted-foreground {
+    color: var(--muted-foreground)
+  }
+
+  .text-foreground {
+    color: var(--foreground);
+  }
 }
