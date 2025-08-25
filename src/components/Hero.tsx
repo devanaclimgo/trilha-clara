@@ -10,10 +10,10 @@ const Hero = () => {
           Trilha Clara
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-2 leading-relaxed">
-          A clear path to knowledge.
+          Um caminho claro para o conhecimento.
         </p>
         <p className="text-lg text-muted-foreground">
-          Get notified when we launch.
+          Seja notificado(a) quando for lançado.
         </p>
       </div>
     </div>
