@@ -130,10 +130,10 @@ const FormCard = () => {
                 }
                 required
               >
-                <SelectTrigger className="bg-white/50 border-border/50 focus:bg-white transition-all">
+                <SelectTrigger className="bg-white border-border/50 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground transition-all duration-300">
                   <SelectValue placeholder="Selecione seu nível" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white border-border/50">
                   <SelectItem value="Ensino Médio">Ensino Médio</SelectItem>
                   <SelectItem value="Curso">Curso</SelectItem>
                 </SelectContent>
