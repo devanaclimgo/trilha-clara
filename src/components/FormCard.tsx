@@ -75,7 +75,7 @@ const FormCard = () => {
                 id="name"
                 type="text"
                 value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
+                onChange={(e) => handleInputChange('name', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                 required
               />
@@ -92,7 +92,7 @@ const FormCard = () => {
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
+                onChange={(e) => handleInputChange('email', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                 required
               />
@@ -109,7 +109,7 @@ const FormCard = () => {
                 id="phone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
                 placeholder="(00) 0 0000-0000"
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                 required
@@ -124,7 +124,11 @@ const FormCard = () => {
                 Nível de Estudo
               </Label>
               <Select
-                value={formData.course} onValueChange={(value) => handleInputChange("Curso", value)} required
+                value={formData.studyLevel}
+                onValueChange={(value) =>
+                  handleInputChange('studyLevel', value)
+                }
+                required
               >
                 <SelectTrigger className="bg-white/50 border-border/50 focus:bg-white transition-all">
                   <SelectValue placeholder="Selecione seu nível" />
@@ -148,7 +152,7 @@ const FormCard = () => {
                   id="course"
                   type="text"
                   value={formData.course}
-                  onChange={(e) => handleInputChange("course", e.target.value)}
+                  onChange={(e) => handleInputChange('course', e.target.value)}
                   className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                   placeholder="Digite o nome do seu curso"
                   required
