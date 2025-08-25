@@ -77,6 +77,7 @@ const FormCard = () => {
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
+                placeholder='Nome'
                 required
               />
             </div>
@@ -94,6 +95,7 @@ const FormCard = () => {
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
+                placeholder='Email'
                 required
               />
             </div>
