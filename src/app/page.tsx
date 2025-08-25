@@ -22,7 +22,7 @@ export default function Home() {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
         <Hero />
 
-        <div className="w-full max-w-md mx-auto mb-6">
+        <div className="w-full max-w-md mx-auto mb-3">
           <FormCard />
 
           <DonationSection />
