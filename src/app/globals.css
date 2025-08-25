@@ -124,4 +124,8 @@
   .text-foreground {
     color: var(--foreground);
   }
+
+  .text-primary {
+    color: var(--primary);
+  }
 }
