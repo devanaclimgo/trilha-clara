@@ -43,18 +43,44 @@ const FormCard = () => {
 
   if (isSubmitted) {
     return (
-      <Card className="w-full max-w-md mx-auto bg-card/80 backdrop-blur-sm border-primary/20 shadow-xl">
-        <CardContent className="p-8 text-center">
-          <CheckCircle className="h-16 w-16 text-accent mx-auto mb-4 animate-bounce" />
-          <h3 className="text-xl font-semibold text-primary mb-2">
-            Você está na lista!
-          </h3>
-          <p className="text-muted-foreground">
-            Avisaremos você assim que a Trilha Clara for lançada. Prepare-se
-            para transformar sua jornada acadêmica!
-          </p>
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-md mx-auto relative">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-8 w-24 h-24 bg-accent/10 rounded-full blur-lg float-animation" />
+          <div
+            className="absolute bottom-8 right-6 w-20 h-20 bg-primary/10 rounded-full blur-md float-animation"
+            style={{ animationDelay: '1s' }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/5 rounded-full blur-xl float-animation"
+            style={{ animationDelay: '2s' }}
+          />
+        </div>
+
+        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl relative z-10">
+          <CardContent className="p-8 text-center">
+            <div className="relative mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl animate-pulse" />
+              <CheckCircle className="h-20 w-20 text-accent mx-auto relative z-10 animate-bounce" />
+            </div>
+
+            <h3 className="text-2xl font-bold text-gradient-trilha mb-4">
+              Você está na lista! 🎉
+            </h3>
+
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Avisaremos você assim que a Trilha Clara for lançada. Prepare-se
+              para transformar sua jornada acadêmica!
+            </p>
+
+            <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-primary/10">
+              <p className="text-sm text-primary font-medium">
+                ✨ Em breve você receberá novidades incríveis!
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     )
   }
 
@@ -77,7 +103,7 @@ const FormCard = () => {
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
-                placeholder='Nome'
+                placeholder="Nome"
                 required
               />
             </div>
@@ -95,7 +121,7 @@ const FormCard = () => {
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
-                placeholder='Email'
+                placeholder="Email"
                 required
               />
             </div>
