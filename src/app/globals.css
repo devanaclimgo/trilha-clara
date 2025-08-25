@@ -136,4 +136,12 @@
   .hover\:bg-muted:hover {
     background-color: var(--muted);
   }
+
+  .text-accent-foreground {
+    color: var(--accent-foreground)
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
 }
