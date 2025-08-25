@@ -1,28 +1,33 @@
-"use client";
-import { useState } from "react";
+'use client'
+import { useState } from 'react'
 import Image from 'next/image'
 
 export default function DonationSection() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section className="w-full flex justify-center py-10 px-4">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-2xl p-6 text-center">
-        <h2 className="text-xl font-bold text-muted-foreground">Apoie este projeto 💖</h2>
-        <p className="text-muted-foreground mt-2">
-          Se a Trilha Clara está ajudando você, considere apoiar com qualquer valor.
-          Isso nos dá energia pra continuar!
-        </p>
+    <section className="w-full flex justify-center py-2 px-4 max-w-md text-center rounded-2xl relative">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20  left-10 w-32 h-32 bg-white/5 rounded-full blur-xl float-animation" />
+        <div
+          className="absolute top-40 right-20 w-24 h-24 bg-white/10 rounded-full blur-lg float-animation"
+          style={{ animationDelay: '1s' }}
+        />
+        <div
+          className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/5 rounded-full blur-2xl float-animation"
+          style={{ animationDelay: '2s' }}
+        />
+      </div>
 
-        <div className="mt-6 flex flex-col gap-3">
-          {/* Botão Pix */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="w-full gradient-trilha rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3"
-          >
-            Apoiar via Pix
-          </button>
-        </div>
+      <div className="mt-6 flex flex-col p-6 max-w-md">
+        {/* Botão Pix */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-64 gradient-animate rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-4 px-6"
+        >
+          Apoie este projeto 💖
+        </button>
       </div>
 
       {/* Modal Pix */}
@@ -36,13 +41,15 @@ export default function DonationSection() {
               ✕
             </button>
             <h3 className="text-lg font-bold text-gray-800">Chave Pix</h3>
-            <p className="text-gray-600 mt-1">Escaneie o QR Code ou copie a chave abaixo:</p>
+            <p className="text-gray-600 mt-1">
+              Escaneie o QR Code ou copie a chave abaixo:
+            </p>
 
             {/* rever imagem QR code */}
             <Image
               src="/pix-qrcode.png"
-              width={20}
-              height={20}
+              width={350}
+              height={350}
               alt="QR Code Pix"
               className="mx-auto my-4 w-40 h-40 border rounded-lg"
             />
@@ -55,5 +62,5 @@ export default function DonationSection() {
         </div>
       )}
     </section>
-  );
+  )
 }
