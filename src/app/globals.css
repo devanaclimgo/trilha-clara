@@ -157,7 +157,7 @@
       background-position: 0% 50%;
     }
   }
-  
+
   .gradient-animate {
     background: linear-gradient(
       -45deg,
@@ -169,7 +169,7 @@
     background-size: 400% 400%;
     animation: gradient-shift 8s ease infinite;
   }
-  
+
   @keyframes float {
     0%,
     100% {
@@ -179,9 +179,52 @@
       transform: translateY(-10px);
     }
   }
-  
+
   .float-animation {
     animation: float 3s ease-in-out infinite;
   }
-  
+
+  .animate-fly {
+    animation: fly 1.5s ease-in-out infinite;
+  }
+
+  @keyframes fly {
+    0%,
+    100% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(4px) translateY(-2px) rotate(5deg);
+    }
+    50% {
+      transform: translateX(8px) translateY(-4px) rotate(10deg);
+    }
+    75% {
+      transform: translateX(4px) translateY(-2px) rotate(5deg);
+    }
+  }
+
+  .animate-trail {
+    animation: trail 1.5s ease-in-out infinite;
+  }
+
+  .animate-trail-delayed {
+    animation: trail 1.5s ease-in-out infinite;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes trail {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-4px) translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-8px) translateY(0) scale(0);
+    }
+  }
 }

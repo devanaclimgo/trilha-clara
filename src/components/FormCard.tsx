@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from './ui/select'
 import { Button } from './ui/button'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Send } from 'lucide-react'
 
 const FormCard = () => {
   const [formData, setFormData] = useState({
@@ -27,11 +27,9 @@ const FormCard = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    // Simulate sending the form
+    await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    alert(
-      'Formulário enviado com sucesso! Você receberá um email quando o projeto estiver pronto.',
-    )
     setFormData({ name: '', email: '', phone: '', studyLevel: '', course: '' })
     setIsSubmitting(false)
     setIsSubmitted(true)
@@ -190,16 +188,25 @@ const FormCard = () => {
 
             <Button
               type="submit"
-              className="w-full gradient-trilha hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3"
+              className="w-full gradient-trilha hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3 relative overflow-hidden"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                  <span>Enviando...</span>
+                <div className="flex items-center space-x-3">
+                  <div className="relative">
+                    <Send className="h-5 w-5 animate-fly" />
+                    <div className="absolute inset-0 bg-white/20 rounded-full blur-sm animate-pulse" />
+                    {/* Flying trail effect */}
+                    <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-white/60 rounded-full animate-trail" />
+                    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-0.5 h-0.5 bg-white/40 rounded-full animate-trail-delayed" />
+                  </div>
+                  <span>Enviando mensagem...</span>
                 </div>
               ) : (
-                'Enviar Formulário'
+                <div className="flex items-center space-x-2">
+                  <Send className="h-4 w-4" />
+                  <span>Enviar Formulário</span>
+                </div>
               )}
             </Button>
           </form>
