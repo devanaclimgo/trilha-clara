@@ -110,7 +110,7 @@ const FormCard = () => {
         <CardContent className="p-4 sm:p-6 md:p-8">
           <form
             onSubmit={handleSubmit}
-            action="https://formsubmit.co/anaclimgo@gmail.com"
+            action="https://formspree.io/f/xqadkglp"
             method="POST"
             className="space-y-6"
           >
