@@ -6,7 +6,18 @@ const Footer = () => {
       {' '}
       {/* Footer */}
       <div>
-        <p className='inline-flex items-center px-6 py-3 text-sm font-medium text-gradient-trilha'>Desenvolvido por Ana Gomes | 2025</p>
+        <p className="text-center px-6 py-3 text-sm font-medium text-foreground">
+          Desenvolvido por{' '}
+          <a
+            href="https://github.com/devanaclimgo"
+            className="text-gradient-trilha"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ana Gomes
+          </a>{' '}
+          | 2025
+        </p>
       </div>
     </div>
   )
