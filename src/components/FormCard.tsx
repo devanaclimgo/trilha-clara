@@ -12,6 +12,8 @@ import {
 import { Button } from './ui/button'
 import { CheckCircle, Send } from 'lucide-react'
 
+import { useForm } from '@formspree/react'
+
 const FormCard = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,20 +22,8 @@ const FormCard = () => {
     studyLevel: '',
     course: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate sending the form
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setFormData({ name: '', email: '', phone: '', studyLevel: '', course: '' })
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-  }
+  const [state, handleSubmit] = useForm('xqadkglp')
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -61,7 +51,73 @@ const FormCard = () => {
     return formatted
   }
 
-  if (isSubmitted) {
+  // Show error state
+  if (state.errors && Array.isArray(state.errors) && state.errors.length > 0) {
+    return (
+      <div className="w-full max-w-md mx-auto relative">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-8 w-24 h-24 bg-red-100/20 rounded-full blur-lg float-animation" />
+          <div
+            className="absolute bottom-8 right-6 w-20 h-20 bg-red-200/20 rounded-full blur-md float-animation"
+            style={{ animationDelay: '1s' }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-red-50/30 rounded-full blur-xl float-animation"
+            style={{ animationDelay: '2s' }}
+          />
+        </div>
+
+        <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl relative z-10">
+          <CardContent className="p-4 sm:p-6 md:p-8 text-center">
+            <div className="relative mb-6 mt-5">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-200/20 to-red-300/20 rounded-full blur-xl animate-pulse" />
+              <div className="h-20 w-20 mx-auto relative z-10 flex items-center justify-center">
+                <span className="text-4xl">😅</span>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gradient-trilha mb-4">
+              Ops! Algo deu errado 😅
+            </h3>
+
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              Houve um problema ao enviar seu formulário. Mas não se preocupe!
+            </p>
+
+            <div className="space-y-3 text-sm text-red-600">
+              {Array.isArray(state.errors) &&
+                state.errors.map(
+                  (error: { message?: string }, index: number) => (
+                    <div
+                      key={index}
+                      className="p-3 bg-red-50 rounded-lg border border-red-200"
+                    >
+                      {error.message || 'Erro desconhecido'}
+                    </div>
+                  ),
+                )}
+            </div>
+
+            <div className="mt-6 p-4 bg-gradient-to-r from-red-50 to-red-100/50 rounded-xl border border-red-200/50">
+              <p className="text-sm text-red-700 font-medium">
+                💡 Tente novamente ou entre em contato conosco!
+              </p>
+            </div>
+
+            <button
+              onClick={() => window.location.reload()}
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:scale-105 transition-all duration-300 font-medium"
+            >
+              Tentar Novamente
+            </button>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  if (state.succeeded) {
     return (
       <div className="w-full max-w-md mx-auto relative">
         {/* Animated background elements */}
@@ -79,7 +135,7 @@ const FormCard = () => {
 
         <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl relative z-10">
           <CardContent className="p-4 sm:p-6 md:p-8 text-center">
-            <div className="relative mb-6">
+            <div className="relative mb-6 mt-5">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl animate-pulse" />
               <CheckCircle className="h-20 w-20 text-accent mx-auto relative z-10 animate-bounce" />
             </div>
@@ -228,9 +284,9 @@ const FormCard = () => {
             <Button
               type="submit"
               className="w-full bg-foreground hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3 relative overflow-hidden"
-              disabled={isSubmitting}
+              disabled={state.submitting}
             >
-              {isSubmitting ? (
+              {state.submitting ? (
                 <div className="flex items-center space-x-3">
                   <div className="relative">
                     <Send className="h-5 w-5 animate-fly" />
