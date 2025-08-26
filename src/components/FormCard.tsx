@@ -23,7 +23,9 @@ const FormCard = () => {
     course: '',
   })
 
-  const [state, handleSubmit] = useForm('xqadkglp')
+  const [state, handleSubmit] = useForm(
+    process.env.NEXT_PUBLIC_FORMSPREE_ID || 'xqadkglp',
+  )
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -166,7 +168,9 @@ const FormCard = () => {
         <CardContent className="p-4 sm:p-6 md:p-8">
           <form
             onSubmit={handleSubmit}
-            action="https://formspree.io/f/xqadkglp"
+            action={`https://formspree.io/f/${
+              process.env.NEXT_PUBLIC_FORMSPREE_ID || 'your_formspree_form_id_here'
+            }`}
             method="POST"
             className="space-y-6"
           >
