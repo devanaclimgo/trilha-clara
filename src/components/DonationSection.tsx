@@ -6,10 +6,10 @@ export default function DonationSection() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section className="w-full flex justify-center py-2 px-4 max-w-md text-center rounded-2xl relative">
+    <section className="w-full flex justify-center py-0 px-4 max-w-md text-center rounded-2xl relative">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20  left-10 w-32 h-32 bg-white/5 rounded-full blur-xl float-animation" />
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl float-animation" />
         <div
           className="absolute top-40 right-20 w-24 h-24 bg-white/10 rounded-full blur-lg float-animation"
           style={{ animationDelay: '1s' }}
@@ -20,11 +20,11 @@ export default function DonationSection() {
         />
       </div>
 
-      <div className="mt-6 flex flex-col p-6 max-w-md">
+      <div className="mt-0 flex flex-col p-6 max-w-md">
         {/* Botão Pix */}
         <button
           onClick={() => setIsOpen(true)}
-          className="w-64 gradient-animate rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-4 px-6"
+          className="w-full sm:w-64 gradient-animate rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base"
         >
           Apoie este projeto 💖
         </button>
@@ -33,7 +33,7 @@ export default function DonationSection() {
       {/* Modal Pix */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-sm w-full text-center relative animate-scaleIn">
+          <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xl max-w-sm w-full mx-4 sm:mx-0 text-center relative animate-scaleIn">
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"

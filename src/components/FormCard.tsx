@@ -78,7 +78,7 @@ const FormCard = () => {
         </div>
 
         <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl relative z-10">
-          <CardContent className="p-8 text-center">
+          <CardContent className="p-4 sm:p-6 md:p-8 text-center">
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-xl animate-pulse" />
               <CheckCircle className="h-20 w-20 text-accent mx-auto relative z-10 animate-bounce" />
@@ -106,9 +106,8 @@ const FormCard = () => {
 
   return (
     <div>
-      {/* rever botão nível de estudo */}
       <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm border-0 shadow-2xl">
-        <CardContent className="p-8">
+        <CardContent className="p-4 sm:p-6 md:p-8">
           <form
             onSubmit={handleSubmit}
             action="https://formsubmit.co/anaclimgo@gmail.com"

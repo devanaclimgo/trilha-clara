@@ -12,7 +12,7 @@ import {
 
 const InfoButton = () => {
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className="fixed top-6 right-4 z-50">
       <Dialog>
         <DialogTrigger asChild>
           <Button
@@ -23,7 +23,7 @@ const InfoButton = () => {
             <Info className="h-5 w-5 text-primary" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md bg-white border border-gray-200 shadow-xl data-[state=open]:animate-dialogScaleIn data-[state=closed]:animate-dialogScaleOut">
+        <DialogContent className="max-w-[calc(100vw-4rem)] sm:max-w-md bg-white border border-gray-200 shadow-xl data-[state=open]:animate-dialogScaleIn data-[state=closed]:animate-dialogScaleOut">
           <DialogHeader>
             <DialogTitle className="text-gradient-trilha text-xl text-center">
               Sobre a Criadora

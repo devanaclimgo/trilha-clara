@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutSection = () => {
   return (
-    <div className="w-full max-w-2xl mx-auto mb-12 text-center">
+    <div className="w-full max-w-2xl mx-auto mb-4 text-center">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-accent/10 rounded-full blur-xl float-animation" />
@@ -12,7 +12,7 @@ const AboutSection = () => {
         />
       </div>
 
-      <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+      <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/20 mx-4 sm:mx-6 md:mx-0">
         <div className="flex items-center justify-center mb-4">
           <span className="text-4xl">📘</span>
         </div>
@@ -21,7 +21,7 @@ const AboutSection = () => {
           O que é a Trilha Clara?
         </h2>
 
-        <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+        <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
           <p>
             <strong className="text-primary">Trilha Clara</strong> é uma
             plataforma feita para estudantes que querem organizar seus estudos

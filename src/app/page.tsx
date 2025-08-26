@@ -19,19 +19,27 @@ export default function Home() {
 
       <InfoButton />
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
-        <Hero />
+      <div className="relative z-10 min-h-screen px-4 py-12 grid grid-rows-[auto,1fr,auto] gap-8">
+        <header className="flex items-center justify-center">
+          <Hero />
+        </header>
 
-        <AboutSection />
+        <main className="w-full max-w-5xl mx-auto grid grid-cols-1 gap-6 sm:gap-8 lg:gap-12 md:grid-cols-2 items-start">
+          <section className="flex flex-col items-center space-y-6 sm:space-y-8">
+            <AboutSection />
+            <DonationSection />
+          </section>
 
-        <div className="w-full max-w-md mx-auto mb-3">
-          <FormCard />
+          <section className="flex justify-center md:justify-end">
+            <div className="w-full max-w-md mx-4 sm:mx-0">
+              <FormCard />
+            </div>
+          </section>
+        </main>
 
-          <DonationSection />
-        </div>
-
-        <Footer />
+        <footer className="flex items-center justify-center mt-4">
+          <Footer />
+        </footer>
       </div>
     </div>
   )
