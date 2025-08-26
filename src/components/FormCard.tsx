@@ -194,7 +194,7 @@ const FormCard = () => {
 
             <Button
               type="submit"
-              className="w-full gradient-trilha hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3 relative overflow-hidden"
+              className="w-full bg-foreground hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-white font-medium py-3 relative overflow-hidden"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

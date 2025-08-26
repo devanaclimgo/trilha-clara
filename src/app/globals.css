@@ -146,6 +146,10 @@
     background-color: var(--accent);
   }
 
+  .bg-foreground {
+    background-color: var(--card-foreground);
+  }
+
   @keyframes gradient-shift {
     0% {
       background-position: 0% 50%;
