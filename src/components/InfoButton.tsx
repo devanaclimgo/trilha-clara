@@ -23,9 +23,7 @@ const InfoButton = () => {
             <Info className="h-5 w-5 text-primary" />
           </Button>
         </DialogTrigger>
-        <DialogContent
-          className="sm:max-w-md bg-white border border-gray-200 shadow-xl data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut"
-        >
+        <DialogContent className="sm:max-w-md bg-white border border-gray-200 shadow-xl data-[state=open]:animate-dialogScaleIn data-[state=closed]:animate-dialogScaleOut">
           <DialogHeader>
             <DialogTitle className="text-gradient-trilha text-xl text-center">
               Sobre a Criadora
