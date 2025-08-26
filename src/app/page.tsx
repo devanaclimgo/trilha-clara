@@ -3,6 +3,7 @@
 import type React from 'react'
 import InfoButton from '@/components/InfoButton'
 import Hero from '@/components/Hero'
+import AboutSection from '@/components/AboutSection'
 import FormCard from '@/components/FormCard'
 import Footer from '@/components/Footer'
 import DonationSection from '@/components/DonationSection'
@@ -21,6 +22,8 @@ export default function Home() {
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
         <Hero />
+
+        <AboutSection />
 
         <div className="w-full max-w-md mx-auto mb-3">
           <FormCard />
