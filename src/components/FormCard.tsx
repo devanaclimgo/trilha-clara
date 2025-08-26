@@ -39,6 +39,28 @@ const FormCard = () => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
+  const formatBrazilPhone = (raw: string) => {
+    const digits = raw.replace(/\D/g, '').slice(0, 11)
+    const area = digits.slice(0, 2)
+    const rest = digits.slice(2)
+
+    if (!digits.length) return ''
+
+    let formatted = ''
+    formatted += `(${area}`
+    if (digits.length >= 2) formatted += ') '
+
+    if (rest.length <= 4) {
+      formatted += rest
+    } else if (rest.length <= 8) {
+      formatted += `${rest.slice(0, rest.length - 4)}-${rest.slice(-4)}`
+    } else {
+      formatted += `${rest.slice(0, 5)}-${rest.slice(5, 9)}`
+    }
+
+    return formatted
+  }
+
   if (isSubmitted) {
     return (
       <div className="w-full max-w-md mx-auto relative">
@@ -87,7 +109,12 @@ const FormCard = () => {
       {/* rever botão nível de estudo */}
       <Card className="w-full max-w-md bg-white/80 backdrop-blur-sm border-0 shadow-2xl">
         <CardContent className="p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            action="https://formsubmit.co/anaclimgo@gmail.com"
+            method="POST"
+            className="space-y-6"
+          >
             <div className="space-y-2">
               <Label
                 htmlFor="name"
@@ -98,6 +125,7 @@ const FormCard = () => {
               <Input
                 id="name"
                 type="text"
+                name="name"
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
@@ -116,6 +144,7 @@ const FormCard = () => {
               <Input
                 id="email"
                 type="email"
+                name="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
@@ -134,15 +163,18 @@ const FormCard = () => {
               <Input
                 id="phone"
                 type="tel"
+                name="telefone"
                 inputMode="numeric"
-                pattern="[0-9]*"
+                pattern="^\(?\d{2}\)?\s?9?\d{4,5}-?\d{4}$"
+                data-mask="(00) 0000-0000"
+                data-mask-selectonfocus="true"
                 value={formData.phone}
                 onChange={(e) => {
-                  // Only allow numbers
-                  const value = e.target.value.replace(/\D/g, '')
-                  handleInputChange('phone', value)
+                  const formatted = formatBrazilPhone(e.target.value)
+                  handleInputChange('phone', formatted)
                 }}
-                placeholder="(00) 0 0000-0000"
+                maxLength={16}
+                placeholder="(00) 00000-0000"
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                 required
               />
@@ -160,6 +192,7 @@ const FormCard = () => {
                 onValueChange={(value) =>
                   handleInputChange('studyLevel', value)
                 }
+                name="selected"
                 required
               >
                 <SelectTrigger className="bg-white border-border/50 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground transition-all duration-300">
@@ -183,6 +216,7 @@ const FormCard = () => {
                 <Input
                   id="course"
                   type="text"
+                  name="curso"
                   value={formData.course}
                   onChange={(e) => handleInputChange('course', e.target.value)}
                   className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
