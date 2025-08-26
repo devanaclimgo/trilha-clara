@@ -23,13 +23,16 @@ const InfoButton = () => {
             <Info className="h-5 w-5 text-primary" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md bg-white border border-gray-200 shadow-xl">
+        <DialogContent
+          className="sm:max-w-md bg-white border border-gray-200 shadow-xl data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut"
+        >
           <DialogHeader>
             <DialogTitle className="text-gradient-trilha text-xl text-center">
               Sobre a Criadora
             </DialogTitle>
             <DialogDescription className="space-y-4 px-2 text-base text-center">
-              Conheça <b>Ana Clara</b>, a mente por trás do projeto Trilha Clara.
+              Conheça <b>Ana Clara</b>, a mente por trás do projeto Trilha
+              Clara.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
@@ -37,8 +40,9 @@ const InfoButton = () => {
               <User className="h-12 w-12 text-primary" />
               <span className="text-base text-muted-foreground">
                 Olá! Sou apaixonada por usar IA para facilitar a vida acadêmica
-                dos alunos. A <b>Trilha Clara</b> é a minha visão para transformar a
-                forma como os alunos abordam seus projetos de tese.
+                dos alunos. A <b>Trilha Clara</b> é a minha visão para
+                transformar a forma como os alunos abordam seus projetos de
+                tese.
               </span>
             </div>
             <div className="space-y-3">
