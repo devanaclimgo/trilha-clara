@@ -134,8 +134,14 @@ const FormCard = () => {
               <Input
                 id="phone"
                 type="tel"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 value={formData.phone}
-                onChange={(e) => handleInputChange('phone', e.target.value)}
+                onChange={(e) => {
+                  // Only allow numbers
+                  const value = e.target.value.replace(/\D/g, '')
+                  handleInputChange('phone', value)
+                }}
                 placeholder="(00) 0 0000-0000"
                 className="bg-white/50 border-border/50 focus:bg-white transition-all duration-300"
                 required
